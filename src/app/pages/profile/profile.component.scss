@@ -1,0 +1,52 @@
+.title {
+    text-align: center;
+    margin-top: 1.5rem;
+    div {
+     border-bottom: solid red;
+     width: 3em;
+     margin: 0px auto;
+    }
+}
+
+form {
+        position: absolute;
+        top: 50%;
+        left: 65%;
+        width: 50%;
+        transform: translate(-50%,-50%);
+     button {
+            margin: 3rem 1rem;
+            font-size: 1rem;
+            width: 15%;
+            height: 2.5rem;
+            border-radius: 5px;
+            outline: none;
+            transition:  0.5s ease;
+            &.edit {
+                background: white;
+                border: 1px solid black;
+                &:hover{
+                    background: lightseagreen;
+                    color: white;
+                }
+            }  
+        &.delete {
+            border: 1px solid red;
+            color: red;
+            background: white;
+            &:hover{
+                background: red;
+                color: white;
+            }
+            }
+        }
+ }
+
+
+ @media only screen and (max-width: 1000px) {
+
+    .form-group {
+        position: relative;
+        top: 2em;
+    }
+}

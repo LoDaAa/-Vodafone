@@ -1,0 +1,81 @@
+<app-header></app-header>
+
+<div class="container">
+
+  <div class="title">
+    <h3>
+        <strong> Add New Contact </strong>
+    </h3>
+    <div></div>
+</div>
+
+    <form #AddForm="ngForm">
+    
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+                  name ="name" [(ngModel)]="Employee.name" #name = "ngModel" placeholder="Enter Name" 
+                  required [class.is-invalid] = "name.errors?.required && name.touched || name.errors?.minlength && name.touched"
+                  [class.is-valid] = "name.length !== 0 && name.touched" minlength="8">
+                  <div class ="text-success mt-2" *ngIf = "!name.errors?.required &&  !name.errors?.minlength && name.touched">
+                    Looks good!
+                  </div>
+                  <div class ="text-danger" *ngIf = "name.errors?.required && name.touched">
+                    Name is required
+                  </div>
+                  <div class ="text-danger" *ngIf = " name.errors?.minlength && name.touched" style="margin: 5px 15px;">
+                    8 characters long required
+                 </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Email Address</label>
+          <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter Email"
+          name ="email" [(ngModel)]="Employee.email" #email = "ngModel" 
+                  required [class.is-invalid] = "email.errors?.required && email.touched || email.errors?.pattern && email.touched"
+                  [class.is-valid] = "!email.error && email.touched"
+                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
+                  <div class ="text-success" *ngIf = "!email.errors?.required && email.touched  && !email.errors?.pattern">
+                    Looks good!
+                  </div>
+                  <div class ="text-danger" *ngIf = "email.errors?.required && email.touched">
+                    Email is required
+                  </div>
+                  <div class ="text-danger" *ngIf = "email.errors?.pattern && email.touched">
+                    Email Address is invalid
+                  </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Phone number </label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Phone"
+            name ="phone" [(ngModel)]="Employee.phone" #phone = "ngModel" 
+                  required [class.is-invalid] = "phone.errors?.required && phone.touched || phone.errors?.pattern && phone.touched
+                                                  || phone.errors?.minlength && phone.touched "
+                  [class.is-valid] = "!phone.errors && phone.touched"
+                  pattern="^[\d\(\)\+]+$" minlength="9">
+                  <span class ="text-success" *ngIf = "!phone.errors?.required && phone.touched && !phone.errors?.pattern && !phone.errors?.minlength">
+                    Looks good!
+                  </span>
+                  <span class ="text-danger" *ngIf = "phone.errors?.required && phone.touched">
+                    Phone is required
+                  </span>
+                  <span class ="text-danger" *ngIf = "phone.errors?.pattern && phone.touched">
+                    Only numbers allowed
+                  </span>
+                  <span class ="text-danger" *ngIf = " phone.errors?.minlength && !phone.errors?.pattern && phone.touched" style="margin: 5px 15px;">
+                    9 numbers long required
+                  </span>
+          </div>
+  
+        <button *ngIf ="!success" class = "add" type="submit" (click)="addContact()" [disabled]="AddForm.form.invalid">Add Contact </button>
+        <button *ngIf ="success" class="success" class="btn btn-success"> Added Successfully</button>
+
+      </form>
+
+</div>
+
+
+<footer> 
+  <div class="footer-items">
+    <p> All Rights Reserved. VSSB {{date}} </p>
+  </div> 
+</footer>

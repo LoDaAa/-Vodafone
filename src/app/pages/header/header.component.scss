@@ -1,0 +1,14 @@
+@media only screen and (max-width: 1200px) {
+    .search{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .navbar-brand{
+        position: relative;
+        right: 2em;
+    }
+    
+}

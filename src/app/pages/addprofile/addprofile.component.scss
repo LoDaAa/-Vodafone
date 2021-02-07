@@ -1,0 +1,50 @@
+.title {
+    text-align: center;
+    margin-top: 1.25rem;
+    div {
+     border-bottom: solid red;
+     width: 5%;
+     margin: 0px auto;
+    }
+}
+
+form{
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    width: 70%;
+    transform: translate(-50%,-50%);
+    transform: scale(0.8);
+    button{
+        position: absolute;
+        left: 25rem;
+        width: 20%;
+        height: 20%;
+        border-radius: 0.313rem;
+        outline: none;
+        transition: 0.5s ease;
+        &.add:hover{
+            background: grey;
+        }  
+    }
+   }
+
+footer{
+    position: absolute;
+    text-align: center;
+    bottom: 0.625rem;
+    left: 35.625rem;
+  }
+
+@media only screen and (max-width: 1000px) {
+    button{
+        margin: 0em -15em;
+
+    }
+}
+
+@media only screen and (max-width: 1350px) {
+    p{
+        display: none;
+    }
+  }

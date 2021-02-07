@@ -1,0 +1,111 @@
+<app-header></app-header>
+
+<div class="profile">
+
+    <div class="title">
+        <h3>
+            <strong> Edit {{ dataList[userId].name}}'s Profile </strong>
+        </h3>
+        <div></div>
+    </div>
+            
+    <form #EditForm="ngForm">
+
+        <div class="mt-5">
+        <div class="form-group row">
+            <div class="input-group">
+                <div>
+                    <label for="name" class="col-sm-1 col-form-label ml-1">Name:</label>
+                </div>
+                <div class="input-group-prepend" style=" width: 50%;">
+                <span class="input-group-text">
+                  <i class="bi bi-person-circle"></i>
+                </span>                    
+				
+                  <input type="text"  class="form-control" id="name" value="{{ dataList[userId].name}}"
+                  name ="name" [(ngModel)]="EditedData.name" #name = "ngModel" size="50" style="border-radius: 0;"
+                  required [class.is-invalid] = "name.errors?.required && name.touched || name.errors?.minlength && name.touched"
+                  [class.is-valid] = "!name.errors && name.touched" minlength="8">
+               </div>
+                <div class ="text-success" *ngIf = "!name.errors?.required &&  !name.errors?.minlength && name.touched" style="margin: 5px 15px;">
+                    Looks good!
+                </div>
+                <div class ="text-danger" *ngIf = "name.errors?.required && name.touched" style="margin: 5px 15px;">
+                  Name is required
+                </div>
+                <div class ="text-danger" *ngIf = " name.errors?.minlength && name.touched" style="margin: 5px 15px;">
+                  8 characters long required
+                </div>
+          </div>
+        </div>
+
+          <div class="form-group row">
+            <div class="input-group">
+                <div>
+                    <label for="Email" class="col-sm-1 col-form-label ml-2">Email:</label>
+                </div>
+                <div class="input-group-prepend" style=" width: 50%;">
+                <span class="input-group-text">
+                  <i class="bi bi-envelope-fill"></i>
+                </span>                    
+                  <input type="text"  class="form-control" id="Email" value="{{ dataList[userId].email}}"
+                  name ="email" [(ngModel)]="EditedData.email" #email = "ngModel" size="50" style="border-radius: 0;"
+                  required [class.is-invalid] = "email.errors?.required && email.touched || email.errors?.pattern && email.touched"
+                  [class.is-valid] = "email.length !==0 && email.touched"
+                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
+                </div>
+                <div class ="text-success" *ngIf = "!email.errors?.required && email.touched  && !email.errors?.pattern" style="margin: 5px 15px;">
+                    Looks good!
+                  </div>
+                <div class ="text-danger" *ngIf = "email.errors?.required && email.touched" style="margin: 5px 15px;">
+                  Email is required
+                </div>
+                <div class ="text-danger" *ngIf = "email.errors?.pattern && email.touched" style="margin: 5px 15px;">
+                  Email Address is invalid
+                </div>
+          </div>
+        </div>
+
+
+          <div class="form-group row">
+            <div class="input-group">
+                <div>
+                    <label for="phone" class="col-sm-1 col-form-label">Phone:</label>
+                </div>
+                <div class="input-group-prepend" style=" width: 50%;">
+				          	<span class="input-group-text">
+                        <i class="bi bi-telephone-fill"></i>
+                    </span>                    
+                <input type="text"  class="form-control" id="phone" value="{{ dataList[userId].phone}}"
+                name ="phone" [(ngModel)]="EditedData.phone" #phone = "ngModel" size="50" style="border-radius: 0;"minlength="9"
+                required [class.is-invalid] = "phone.errors?.required && phone.touched || phone.errors?.pattern && phone.touched
+                                               || phone.errors?.minlength && phone.touched "
+                [class.is-valid] = "!phone.errors && phone.touched"
+                pattern="^[\d\(\)\+]+$" >
+                
+                </div>
+                <div class ="text-success" *ngIf = "!phone.errors?.required && phone.touched && !phone.errors?.pattern && !phone.errors?.minlength" style="margin: 5px 15px;">
+                    Looks good!
+                  </div>
+                <div class ="text-danger" *ngIf = "phone.errors?.required && !phone.errors?.minlength && phone.touched" style="margin: 5px 15px;">
+                  Phone is required
+                </div>
+                <div class ="text-danger" *ngIf = "phone.errors?.pattern && phone.touched" style="margin: 5px 15px;">
+                  Only numbers allowed
+                </div>
+                <div class ="text-danger" *ngIf = " phone.errors?.minlength && !phone.errors?.pattern && phone.touched" style="margin: 5px 15px;">
+                  9 numbers long required
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <button *ngIf = "!success" (click)="saveContact()" [disabled]="EditForm.form.invalid" class="save"> <span> Save Contact</span> </button>
+          <button  *ngIf = "success" type="button" class="btn btn-success">Saved Successfully</button>
+
+      </form>
+
+</div>
+
+<app-footer></app-footer>
+

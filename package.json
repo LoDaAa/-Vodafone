@@ -19,9 +19,19 @@
     "@angular/platform-browser": "~11.1.0",
     "@angular/platform-browser-dynamic": "~11.1.0",
     "@angular/router": "~11.1.0",
+    "browserify-fs": "^1.0.0",
+    "edit-json-file": "^1.5.0",
+    "fs": "0.0.1-security",
+    "ngx-bootstrap": "^6.2.0",
+    "os": "^0.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1101.1",

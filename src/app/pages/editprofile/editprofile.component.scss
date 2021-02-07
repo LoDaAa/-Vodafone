@@ -1,0 +1,41 @@
+.title {
+    text-align: center;
+    margin-top: 1.125rem;
+    div {
+     border-bottom: solid red;
+     width: 4%;
+     margin: 0px auto;
+    }
+}
+
+form {
+    position: absolute;
+    top: 45%;
+    left: 60%;
+    width: 50%;
+    transform: translate(-50%,-50%);
+    button {
+            margin: 3.125rem 6.25rem;
+            font-size: 1rem;
+            padding: 0.313rem;
+            width: 23%;
+            height: 2.5rem;
+            border-radius: 0.313rem;
+            outline: none;
+            transition: 0.5s ease;
+            &.save:hover{
+                background: grey;
+            }
+            &.delete {
+                border: 1px solid red;
+                color: red;
+                }
+            }
+}
+
+@media screen and (max-width: 900px) {
+        button span{
+          display: block;
+          width: 6.25em;
+        }
+      }

@@ -1,0 +1,67 @@
+.container{
+    position: relative;
+    top: -5rem;
+    height: 40rem;
+    .title {
+        text-align: center;
+        margin-bottom: 2rem;
+        div {
+         border-bottom: solid red;
+         width: 5%;
+         margin: 0px auto;
+        }
+    }
+    .letter-group{
+        position: relative;
+        left: 25rem;
+        font-size: 25px;
+    
+        .letter{
+            cursor: pointer;
+            color:  #737373;
+            &.active{
+                color: red;
+                transform: scale(1.5);
+            }
+        }
+    }
+    .card {
+        width: 100%;
+        cursor: pointer;
+        box-shadow: 5px 10px 18px #888888;
+        &:hover {
+            transform: scale(1.1);
+        }
+        .card-header{
+            background-color: #1a1a1a !important;
+        }
+        .card-body{
+            height: 13%;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .container-fluid{
+        position: relative;
+        right: 22em;
+    }
+    .navbar-brand{
+        position: relative;
+        right: 2em;
+    }
+    
+}
+
+@media only screen and (max-width: 1300px) {
+    .search{
+        display: none;
+    }
+}
+  
+@media only screen and (min-width: 1000px) {
+    .card-columns{
+        overflow-x: scroll;
+    }
+}
