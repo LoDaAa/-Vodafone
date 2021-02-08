@@ -1,6 +1,9 @@
 # Author
 Khaled Garaween
 
+#Requirment 
+npm install --save-dev @angular-devkit/build-angular
+
 # VodafoneTask
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
