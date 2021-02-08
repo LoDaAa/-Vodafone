@@ -1,7 +1,8 @@
 # Author
 Khaled Garaween
 
-# Requirment 
+# Install the required dependencies
+
 npm install --save-dev @angular-devkit/build-angular
 
 # VodafoneTask
